@@ -1,0 +1,24 @@
+D. embed the ruby in js
+
+ok awesome, so now we have an array for the starting location and the ending location. the array contains the latitude and longitude for the selected station. this is rad because this is ALL we need to create markers and draw shapes and lines using the leaflet js mapping library.
+
+you can add a marker to a leaflet map using the following code.
+
+L.marker([longitude, latitude]).addTo(map);
+here:
+
+L is the leaflet library
+.marker is a method that creates a marker object. it takes one parameter, an array with 2 elements, longitude and latitude
+.addTo is a method that takes an objects and adds it to a map, which is passed as the parameter map (NOTE: that map was made earlier using this code var map = L.map('map').setView([40.7142, -74.0064], 13);)
+so now: 1. add a marker for the start and end locations
+
+in addition to markers, leaflet also allows you to draw polygons. a line is considered a polygon.
+
+making a polygon is really similar to making a marker; except you use .polygon instead of .marker and you just simply pass it more points as parameters:
+
+L.polygon([
+    [lat1, lng1],
+    [lat2, lng2],
+    [lat3, lng3]
+]).addTo(map);
+using that knowledge 2. create a line from the start location to the end location.
